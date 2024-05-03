@@ -1,0 +1,151 @@
+.App {
+  font-family: sans-serif;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  /* margin-bottom: 20px; */
+  box-sizing: border-box;
+  flex: 1 0 calc(30.333% ) !important;
+  margin:10px;
+  /* width: 50%; */
+}
+
+.companyInfo {
+  display: flex;
+}
+
+.companyLogo {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.companyName {
+  font-size: 1em;
+  color:#666;
+  font-weight: 600;
+}
+
+.jobTitle {
+  font-size: 1em;
+  /* margin-bottom: 10px; */
+}
+
+.location {
+  font-size: 0.9em;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.description {
+  font-size: 0.9em;
+  margin-bottom: 10px;
+  color: #333;
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
+.description.expanded {
+  height: auto;
+}
+
+
+.experience {
+  font-size: 0.9em;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.applyButton {
+  font-size: 1em;
+  color: #fff;
+  background-color: #4CAF50;
+  padding: 5px 0;
+  text-decoration: none;
+  border-radius: 5px;
+  width: 100vw;
+}
+
+.viewJobButton {
+  font-size: 1em;
+  color: blue;
+  background-color: transparent;
+  padding: 5px 0;
+  text-decoration: none;
+  width: 100%;
+  margin-bottom: 10px;
+  border:none;
+}
+
+.title{
+  display: flex;
+  flex-direction: column;
+  gap:3px
+}
+
+.applyButton {
+  height:30px;
+  font-size: 1em;
+  font-weight: 550;
+  color: black;
+  background-color: #55efc4;
+  padding: 5px 0;
+  text-decoration: none;
+  border-radius: 5px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.applyButtonInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.applyButtonText {
+  font-size: 1em;
+  margin-right: 10px;
+}
+::placeholder{
+  font-size: 0.8rem;
+}
+
+.jobCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.jobCard {
+  /* Adjust the width to show 3 items per row with margin */
+  margin-bottom: 2%;
+}
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+@media (max-width: 992px) {
+  .card {
+    flex: 1 0 calc(50% - 10px);
+    /* Show 2 items per row on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex: 1 0 100%;
+    /* Show 1 item per row on small screens */
+  }
+}
