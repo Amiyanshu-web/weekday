@@ -24,7 +24,6 @@ Filters are implemented to allow users to refine the job listings based on the f
 - Company name
 - Location
 - Remote/on-site
-- Tech stack
 - Role
 - Minimum base pay
 
