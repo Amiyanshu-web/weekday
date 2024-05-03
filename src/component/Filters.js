@@ -47,15 +47,7 @@ const FilterComponent = ({ filters, onFilterChange }) => {
         id="remoteOrOnSite"
         selectedVal={filters?.remoteOrOnsite}
         placeholder="Remote/On-site"
-      />
-
-      {/* Searchable dropdown for Tech Stack */}
-      <SearchableDropdown
-        options={techStack}
-        label="stack"
-        id="techStack"
-        selectedVal={filters?.techStack}
-        placeholder="Tech Stack"
+        handleChange={(val) => handleChange('remote', val)}
       />
 
       {/* Searchable dropdown for Minimum Base Pay */}
@@ -75,6 +67,7 @@ const FilterComponent = ({ filters, onFilterChange }) => {
               type="text"
               name="search"
               placeholder="Search"
+              handleChange={(val) => handleChange('company', val)}
             />
           </div>
         </div>

@@ -21,7 +21,9 @@ export const minExperience = [
   // Location
   export const location = [
     { id: 1, city: "Bangalore", country: "India" },
-    { id: 2, city: "New York", country: "USA" }
+    { id: 1, city: "Mumbai", country: "India" },
+    { id: 1, city: "Chennai", country: "India" },
+    { id: 1, city: "Delhi NCR", country: "India" },
   ];
   
   // Remote/on-site
@@ -47,9 +49,11 @@ export const minExperience = [
   
   // Role
   export const role = [
-    { id: 1, name: "Software Engineer (Embedded)" },
-    { id: 2, name: "Full Stack Developer" },
-    {id: 3, name:"ios"}
+    { id: 1, name: "tech lead" },
+    { id: 2, name: "frontend" },
+    {id: 3, name:"ios"},
+    {id:4, name: "android"},
+    {id:5, name:"backend"}
   ];
   
   // Min Base Pay

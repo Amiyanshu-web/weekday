@@ -16,32 +16,49 @@ const Jobs = () => {
         minExp: '',
         location: '',
         jobRole: '',
-        minJdSalary: ''
+        minJdSalary: '',
+        remote:'',
+        company:''
     });
 
     const handleFilterChange = (updatedFilters) => {
-        // Parse minExp and minJdSalary to integers
-        updatedFilters.minExp =parseInt(updatedFilters.minExp);
-        updatedFilters.minJdSalary = parseInt(updatedFilters.minJdSalary);
-
-        console.log(updatedFilters.minExp);
-
         setFilters(updatedFilters);
-        // Filter jobs based on the provided filters
-        const filteredJobs = jobs.filter(job => {
-            // Implement your filtering logic here based on the updatedFilters object
-            // For example:
-            return (
-                // (updatedFilters.minExp === '' || job.minExp >= parseInt(updatedFilters.minExp)) &&
-                // (updatedFilters.location === '' || job.location === updatedFilters.location) &&
-                (updatedFilters.jobRole === '' || job.jobRole === updatedFilters.jobRole) 
-                // &&
-                // (updatedFilters.minJdSalary === '' || job.minJdSalary <= parseInt(updatedFilters.minJdSalary))
-            );
-        });
-        setFilteredJobs(filteredJobs);
-    };
+        setFilteredJobs([]); // Clear the filteredJobs state
 
+        // Filter jobs based on the provided filters
+        let filteredJob = [...jobs];
+
+        // Check if minExp filter is provided
+        if (updatedFilters.minExp !== '') {
+            filteredJob = filteredJob.filter(job => job.minExp >= parseInt(updatedFilters.minExp));
+        }
+
+        // Check if location filter is provided
+        if (updatedFilters.location !== '') {
+            filteredJob = filteredJob.filter(job => job.location?.toLowerCase() === updatedFilters.location?.toLowerCase());
+        }
+
+        // Check if remote filter is provided
+        if (updatedFilters.remote !== '') {
+            filteredJob = filteredJob.filter(job => job.remote?.toLowerCase() === updatedFilters.remote?.toLowerCase());
+        }
+
+        // Check if jobRole filter is provided
+        if (updatedFilters.jobRole !== '') {
+            filteredJob = filteredJob.filter(job => job.jobRole === updatedFilters.jobRole);
+        }
+
+        // Check if minJdSalary filter is provided
+        if (updatedFilters.minJdSalary !== '') {
+            filteredJob = filteredJob.filter(job => job.minJdSalary >= parseInt(updatedFilters.minJdSalary));
+        }
+
+        if (updatedFilters.company !== '') {
+            filteredJob = filteredJob.filter(job => job.companyName?.toLowerCase() === updatedFilters.company?.toLowerCase());
+        }
+
+        setFilteredJobs(filteredJob);
+    };
 
     const fetchJobs = async () => {
         if (isLoading) return;
@@ -66,7 +83,7 @@ const Jobs = () => {
         setIsLoading(false);
     };
 
-    console.log(filters);
+    console.log(filteredJobs);
     // setHasMore();
     // if(jobs.length < totalCount)    setHasMore(true);   
 
